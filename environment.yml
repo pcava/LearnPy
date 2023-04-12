@@ -1,0 +1,34 @@
+# Conda Environment Setup Instructions ----
+# https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+
+#  Using an environment.yml file with conda - Key Terminal Commands:
+#    conda create --name paolo_efg python=3.9 numpy  # create from scratch
+#    conda env create --file environment.yml  # create from yml file
+#    activate paolo_efg  # to activate the env
+#    conda env update --file environment.yml --prune  # to update the env from yml file
+#    conda env export --name paolo_efg > environment.yml  # to create/update the yml file
+#    conda env remove --name paolo_efg
+
+#  Using a project-specific environment:
+#    conda create --prefix ./env python=3.9 numpy  # create from scratch
+#    conda env create --prefix ./env --file environment.yml  # create from yml file
+#    activate ./env  # to activate the env
+#    conda env update --prefix ./env --file environment.yml  --prune  # to update the env from yml file
+#    conda env export --prefix ./env > environment.yml  # to create/update the yml file
+#    conda env remove --prefix ./env
+
+# conda create --name paolo_efg python numpy pandas matplotlib plotnine mizani plotly seaborn pandas-profiling ppscore pyjanitor statsmodels scikit-learn sktime pmdarima sqlalchemy xlsxwriter openpyxl pyarrow jupyterlab ipywidgets ipympl jupytext papermill pandoc rich pandas_flavor
+
+name: paolo_efg
+channels:
+  - conda-forge
+  - anaconda-fusion
+  - defaults
+dependencies:
+  - python
+  - pip
+
+  # Core Data
+  # - scikit-misc
+  - numpy
+  - pandas
