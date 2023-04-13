@@ -3,6 +3,7 @@
 # WARNING: XlsxWriter cannot read or modify existing Excel XLSX files!!!
 # Use OpenPyXL - example at the end of the OpenPyXL.px file
 # or pywin32 - https://pbpython.com/windows-com.html
+# or xlwings - https://docs.xlwings.org/
 
 
 # Getting Started
