@@ -15,16 +15,18 @@
 :: REM will print the comment in the terminal
 :: will NOT print the comment in the terminal
 
-echo Script: %~f0
-echo Date: %DATE:/=-% and Time:%TIME::=-%
+echo Script: %~f0 - Started on: %DATE:/=-% at: %TIME::=-%
 
 :: Move one level up to the root folder
 cd %~dp0..
 
 :: Execute a python script with specific env
-:: call "C:\ProgramData\Anaconda3\Scripts\activate.bat" "C:\Users\CAVP\.conda\envs\paolo_env"
-:: "C:\Users\CAVP\.conda\envs\paolo_efg\python.exe" "test_email.py"
+call "C:\ProgramData\Anaconda3\Scripts\activate.bat" "C:\Users\CAVP\.conda\envs\paolo_env"
+"C:\Users\CAVP\.conda\envs\paolo_efg\python.exe" "pywin32_outlook_email.py"
 :: pause :: uncomment this line to debug
 
 :: https://coderwall.com/p/jexjlw/pause-on-error-in-batch-file
 if NOT ["%errorlevel%"]==["0"] pause
+
+echo Script: %~f0 - Ended on: %DATE:/=-% at: %TIME::=-%
+echo. & :: prints blank line

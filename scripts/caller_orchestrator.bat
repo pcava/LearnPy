@@ -8,7 +8,8 @@
 :: Move one level up to the root folder
 cd %~dp0..
 
-:: echo Date: %DATE:/=-% and Time: %TIME::=-% >> "scripts\LogEverything.txt"
+echo Script: %~f0 - Started on: %DATE:/=-% at: %TIME::=-% >> "scripts\LogEverything.txt"
+echo. >> "scripts\LogEverything.txt"
 
 :: Execute the test.bat script
 :: call "scripts\test.bat"
@@ -23,10 +24,16 @@ cd %~dp0..
 :: del "scripts\LogErrors.txt"
 :: call "scripts\test.bat" 1>NUL 2>"scripts\LogErrors.txt"
 
+:: https://stackoverflow.com/questions/503846/how-do-i-echo-and-send-console-output-to-a-file-in-a-bat-script
+:: call "scripts\daily_task_1.bat" 1>> "scripts\LogOutput.txt" 2>> "scripts\LogErrors.txt"
+:: call "scripts\daily_task_2.bat" > "scripts\LogEverything.txt" 2>&1
+
 :: Execute the script and append >> both output and errors to a log file
 del "scripts\LogEverything.txt"
-call "scripts\test.bat" >> "scripts\LogEverything.txt" 2>&1
+call "scripts\caller_name.bat" >> "scripts\LogEverything.txt" 2>&1
 
-if NOT ["%errorlevel%"]==["0"] pause
+@if NOT ["%errorlevel%"]==["0"] pause
+
+echo Script: %~f0 - Ended on: %DATE:/=-% at: %TIME::=-% >> "scripts\LogEverything.txt"
 
 exit
