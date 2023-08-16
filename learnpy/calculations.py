@@ -5,7 +5,13 @@ import numpy as np
 import sqlite3
 from sqlite3 import Error
 
-from . import config
+# Rel. vs Abs. Imports
+# from . import config # works only when imported as a module, not run directly
+# from config import PI, DEFAULT_DB_PATH # works only when used directly, not as a module
+# from learnpy.config import PI, DEFAULT_DB_PATH # works only when imported as a module, not run directly
+import learnpy.config as config # works only when imported as a module, not run directly
+# import config as config # works only when used directly, not as a module
+
 
 # Your custom calculations start here...
 def circular_land_area(radius):

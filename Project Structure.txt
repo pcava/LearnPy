@@ -1,0 +1,74 @@
+After asking ChatGPT I ended up with the below structure:
+
+project_name/
+    ├── data/
+    │   ├── input/
+    │   └── output/
+    ├── docs/
+    │   └── ...
+    ├── scripts/
+    │   ├── script1.bat
+    │   ├── script2.bat
+    │   └── ...
+    ├── src/
+    │   ├── __init__.py
+    │   ├── config.py
+    │   ├── task1.py
+    │   ├── task2.py
+    │   ├── utils.py
+    │   └── ...
+    ├── tests/
+    │   ├── __init__.py
+    │   ├── test_task1.py
+    │   ├── test_task2.py
+    │   └── ...
+    ├── environment.yml
+    ├── README.md
+    ├── task1.py
+    └── task2.py
+
+- The `src/` directory contains the application code.
+- The `tests/` directory holds unit tests.
+- The `data/` directory includes input and output data files.
+- The `docs/` directory is for documentation, with subdirectories for different types of documentation.
+- The `src/config.py` file stores global configuration settings used across the package - eg. db_path
+- The `scripts/` directory holds batch scripts or other executable scripts.
+- The `environment.yml` file defines the project's dependencies for Conda.
+- The `README.md` file provides an overview of the project.
+
+
+The specific task1.py scripts can be structured based on the following template:
+
+# IMPORTS ---
+# for importing packages/modules
+
+# PARAMS ---
+# for local parameters, eg. RefDate
+# global params are exposed via src/config.py
+
+# INPUT ---
+# for input data params, eg. file_in = config.FILE_IN
+
+# OUTPUT ---
+# for output data params, eg. file_out = config.FILE_OUT
+
+# DATA IMPORT ---
+# eg. pd.read_excel(file_in)
+
+# DATA PREP ---
+# manipulate data, eg. join, filter, etc
+
+# DATA ANALYSIS
+# eg. EDA, Viz, etc.
+
+# DATA MODELING
+# eg. lm
+
+# DATA EXPORT ---
+# eg. df.to_excel(file_out)
+
+
+Parameters:
+- package-wide parameters: defined in src/config.py and used across the package - eg. db_path
+- module/script-wide parameters: defined at the top of py script for local usage - eg. RefDate
+- function-wide parameters: defined inside the function definition - eg- def fn(prm1):

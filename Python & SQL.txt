@@ -1,0 +1,12 @@
+You can use SQL queries from Python in multiple ways.
+
+I came up with 4 different ways from the most isolated (pro: when changing it won't break other code) to the most centralized (pro: write-once deploy-everywhere):
+
+1. as part of a python function
+2. in a sql file which is sourced via open command
+3. read from a GitHub/GitLab/BitBucket remote repo
+4. using a stored procedure from the db directly
+
+NB:
+- Solution 2 and 3 do NOT allow to pass parameters when embedding into a python function - less flexible - but can be quite useful for sharing a single file with others -> to be used when there is no need to pass any changing parameters
+- Solution 1 and 4 DO allow to pass parameters from the python function - more flexible -> sol. 4 is to be preferred in most cases although it comes with the highest dev effort while sol. 1 can be a good compromise in case there is no need to use the query anywhere else.
