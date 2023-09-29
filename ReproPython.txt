@@ -1,0 +1,122 @@
+https://gitlab.com/pcava/ReproducibleMDA/-/blob/master/Repro_Python_Projects.md
+
+It can be done in different ways. I'm focusing here on conda OR pip+venv (see below).
+
+When installing python from scratch on a new machine I would:
+1. for conda-only: install/update miniconda (which comes with a python version included)
+2. for pip+venv: download latest version from python.org
+
+At EFG I need a mix of both unfortunately as I can use conda as a package manager only while pip for managing packages.
+
+-----------------------------------------------
+conda only (using a project-specific environment):
+
+# create a new project directory
+mkdir my-python-project
+cd my-python-project
+
+to create a new conda env with minimal packages (python and pip only):
+conda create --prefix ./env python=3.9 --no-default-packages
+
+# to activate the new environment
+activate ./env
+
+# to update pip to the latest version
+conda update pip
+
+# to deactivate the new environment
+conda deactivate
+
+# to remove an environment
+conda env remove --prefix ./env
+
+
+to list the installed packages:
+conda list
+
+to install a package (latest public available version):
+conda install requests 
+
+to install a package (specific version):
+conda install requests=x.x
+
+to update a package:
+conda update requests
+
+to save all installed packages into environment.yml file:
+conda env export --prefix ./env > environment.yml
+
+to install all packages from environment.yml file into an environment:
+conda env create --prefix ./env --file environment.yml
+
+to update packages in the active environment using a new environment.yml file:
+conda env update --prefix ./env --file environment.yml  --prune
+
+to list package dependencies:
+conda search requests --info
+
+to uninstall packages (check dependencies first):
+conda remove requests
+
+
+----------------------------------------
+venv + pip:
+based on:
+- Working With Python Virtual Environments - Real Python course notes
+- A Beginner's Guide to pip - Real Python course notes
+
+# create a new project directory
+mkdir my-python-project
+cd my-python-project
+
+# create a new venv environment
+python -m venv venv
+
+# to activate the new environment
+venv\Scripts\activate
+
+# to update pip to the latest version
+python -m pip install --upgrade pip
+
+# to deactivate the new environment
+deactivate
+
+# to remove an environment
+rm -r venv\
+
+
+to list the installed packages:
+pip list
+
+to install a package (latest public available version):
+pip install requests 
+
+to install a package (specific version):
+pip install requests=x.x
+
+to update a package:
+pip install --upgrade requests
+
+to save all installed packages into requirments.txt file:
+pip freeze > requirements.txt
+
+to install all packages from requirements.txt file into an active environment:
+pip install -r requirements.txt
+
+to update packages in the active environment using a new requirements.txt file:
+pip install --upgrade -r requirements.txt
+
+
+to list package dependencies (both requires and required by):
+pip show requests
+
+to uninstall packages (check dependencies first):
+pip uninstall requests
+
+--------------------------------------------
+Production vs Development Dependencies
+- to have a separate requirements.txt for DEV (eg. including pytest), create a separate requirements_dev.txt that could look like the below:
+-r requirement.txt
+pytest>=5.3.5
+
+- to freeze the packages version for production environment, make sure your requirements.txt file contains only specific version numbers (only ==, no >=, <=, etc.) - you can create also a requirements_locked.txt file for that to be used in PROD
