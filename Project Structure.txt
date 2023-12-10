@@ -69,6 +69,7 @@ The specific task1.py scripts can be structured based on the following template:
 
 
 Parameters:
-- package-wide parameters: defined in src/config.py and used across the package - eg. db_path
+- package-wide credentials: defined in .env file and used across the package - eg. OPENAI_API_KEY
+- package-wide constatns/parameters: defined in src/config.py and used across the package - eg. DB_PATH
 - module/script-wide parameters: defined at the top of py script for local usage - eg. RefDate
-- function-wide parameters: defined inside the function definition - eg- def fn(prm1):
+- function-wide parameters: defined inside the function definition - eg. def fn(prm1=10):

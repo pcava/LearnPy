@@ -6,12 +6,12 @@
 # import config as config # does NOT work
 
 
-# They both work fine
-import learnpy.calculations as calculations # works
-calculations.create_database()
+# They all work fine
+# import learnpy.calculations as calculations # works
+# calculations.create_database()
 
-from learnpy.calculations import create_database # works
-create_database()
+# from learnpy.calculations import create_database # works
+# create_database()
 
-
-
+import learnpy.calculations as clc # works
+clc.main()
