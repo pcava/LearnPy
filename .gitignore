@@ -1,4 +1,5 @@
 /learnpy/config_private.py
+.env
 
 # source: https://github.com/github/gitignore/blob/main/Python.gitignore
 

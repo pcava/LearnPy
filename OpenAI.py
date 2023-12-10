@@ -1,11 +1,12 @@
 # https://platform.openai.com/docs/quickstart?context=python
 
-from learnpy import config_private
+import os
+from dotenv import load_dotenv
 
 from openai import OpenAI
 
 client = OpenAI(
-  api_key = config_private.OPENAI_API_KEY,
+  api_key = os.getenv("OPENAI_API_KEY"),
 )
 
 # chat completions
