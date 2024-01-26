@@ -12,13 +12,14 @@ client = OpenAI(
 # chat completions
 completion = client.chat.completions.create(
   model="gpt-3.5-turbo",
+  # model = "gpt-4-turbo-preview",
   messages=[
     {"role": "system", "content": "You are a poetic assistant, skilled in explaining complex programming concepts with creative flair."},
     {"role": "user", "content": "Compose a poem that explains the concept of recursion in programming."}
   ]
 )
 
-print(completion.choices[0].message)
+print(completion.choices[0].message.content)
 
 
 # embeddings
@@ -27,7 +28,7 @@ response = client.embeddings.create(
   input="The food was delicious and the waiter..."
 )
 
-print(response)
+print(response.data[0].embedding)
 
 
 # images
@@ -37,4 +38,5 @@ response = client.images.generate(
   size="1024x1024"
 )
 
-print(response)
+print(response.data[0].url)
+print(response.data[1].url)
