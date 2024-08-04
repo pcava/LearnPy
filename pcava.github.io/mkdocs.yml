@@ -1,0 +1,33 @@
+# https://towardsdatascience.com/full-guide-to-build-a-professionnal-portfolio-with-python-markdown-git-and-github-page-for-66d12f7859f0
+
+# Project information
+site_name: Paolo Cavatore's portfolio
+site_url: https://pcava.github.io/
+site_author: Paolo Cavatore
+site_description: >-
+  My name is Paolo Cavatore, Senior Business Intelligence Analyst, 
+  and this is my work in progress website
+
+# Repository
+repo_name: pcava/pcava.github.io
+repo_url: https://github.com/pcava/pcava.github.io
+
+# Configuration
+theme:
+  name: material
+
+# Additional configuration
+# extra:
+#   analytics:
+#     provider: google
+#     property: <google analystics code> # tutorial to create a code: https://www.w3schools.com/howto/howto_google_analytics.asp
+
+# Page tree
+nav:
+- Home: index.md
+- Topic 1:
+  - "Project 1": proj1/README.md
+  - "Project 2": proj2/README.md
+- Topic 2:
+  - "Project 3": proj3/README.md
+  - "Project 4": proj4/README.md
